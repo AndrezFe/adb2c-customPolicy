@@ -35,43 +35,12 @@
       <ContentDefinition Id="api.localaccountpasswordreset">
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
       </ContentDefinition>
-      <ContentDefinition Id="api.phonefactor">
+      <!-- <ContentDefinition Id="api.phonefactor">
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0</DataUri>
-      </ContentDefinition>
+      </ContentDefinition> -->
     </ContentDefinitions>
   </BuildingBlocks>
   <ClaimsProviders>
-    <ClaimsProvider>
-      <DisplayName>Azure Active Directory</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="AAD-Common">
-          <DisplayName>Azure Active Directory</DisplayName>
-          <Metadata>
-            <Item Key="ApplicationObjectId">ac80e444-f4ce-40e1-a57d-ac79deb2a788</Item>
-            <Item Key="ClientId">1694a267-15c5-4de9-b14b-45c093603a10</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-
-    <ClaimsProvider>
-      <DisplayName>Local Account SignIn</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="login-NonInteractive">
-          <Metadata>
-            <Item Key="client_id">c915a39e-ed83-4616-91a8-33ee261bcff3</Item>
-            <Item Key="IdTokenAudience">de16dcb0-5c9a-4bec-a3be-36fa3b43cff1</Item>
-          </Metadata>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="client_id"
-              DefaultValue="c915a39e-ed83-4616-91a8-33ee261bcff3" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource"
-              DefaultValue="de16dcb0-5c9a-4bec-a3be-36fa3b43cff1" />
-          </InputClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-
     <ClaimsProvider>
       <Domain>Indigo</Domain>
       <DisplayName>Login with your company</DisplayName>
@@ -84,7 +53,7 @@
             <Item Key="METADATA">
               https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the Application ID -->
-            <Item Key="client_id">2570706f-c307-4a74-8dd9-9c84a01cfdbc</Item> <!-- Indira-RIS-->
+            <Item Key="client_id">aba982ea-47e3-46ab-9c26-3ea7ff664473</Item> <!-- Indira-RIS-->
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="response_mode">form_post</Item>
@@ -142,6 +111,38 @@
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
+
+    <ClaimsProvider>
+      <DisplayName>Local Account SignIn</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="login-NonInteractive">
+          <Metadata>
+            <Item Key="client_id">c915a39e-ed83-4616-91a8-33ee261bcff3</Item>
+            <Item Key="IdTokenAudience">de16dcb0-5c9a-4bec-a3be-36fa3b43cff1</Item>
+          </Metadata>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="client_id"
+              DefaultValue="c915a39e-ed83-4616-91a8-33ee261bcff3" />
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource"
+              DefaultValue="de16dcb0-5c9a-4bec-a3be-36fa3b43cff1" />
+          </InputClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+
+    <ClaimsProvider>
+      <DisplayName>Azure Active Directory</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AAD-Common">
+          <DisplayName>Azure Active Directory</DisplayName>
+          <Metadata>
+            <Item Key="ApplicationObjectId">ac80e444-f4ce-40e1-a57d-ac79deb2a788</Item>
+            <Item Key="ClientId">1694a267-15c5-4de9-b14b-45c093603a10</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+
   </ClaimsProviders>
   <!--UserJourneys>
 
@@ -239,13 +240,13 @@
           </ClaimsExchanges>
         </OrchestrationStep>
         <!-- This step is used to enrich the token with additional claims. -->
-        <OrchestrationStep Order="7" Type="ClaimsExchange">
+        <!-- <OrchestrationStep Order="7" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="EnrichToken" TechnicalProfileReferenceId="RestApiProfile" />
           </ClaimsExchanges>
-        </OrchestrationStep>
+        </OrchestrationStep> -->
         <!-- This step is used to send the claims to the relying party. -->
-        <OrchestrationStep Order="8" Type="SendClaims"
+        <OrchestrationStep Order="7" Type="SendClaims"
           CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
       </OrchestrationSteps>
       <ClientDefinition ReferenceId="DefaultWeb" />
@@ -256,13 +257,13 @@
         <OrchestrationStep Order="1" Type="ClaimsProviderSelection"
           ContentDefinitionReferenceId="api.idpselections">
           <ClaimsProviderSelections>
-            <!-- <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" /> -->
+            <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
             <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
           </ClaimsProviderSelections>
         </OrchestrationStep>
         <OrchestrationStep Order="2" Type="ClaimsExchange">
           <ClaimsExchanges>
-            <!-- <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" /> -->
+            <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
             <ClaimsExchange Id="LocalAccountSigninEmailExchange"
               TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
           </ClaimsExchanges>

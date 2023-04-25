@@ -210,13 +210,13 @@
         <UserHelpText>Your display name.</UserHelpText>
         <UserInputType>TextBox</UserInputType>
       </ClaimType>
-      <ClaimType Id="strongAuthenticationPhoneNumber">
+      <!-- <ClaimType Id="strongAuthenticationPhoneNumber">
         <DisplayName>Phone Number</DisplayName>
         <DataType>string</DataType>
         <Mask Type="Simple">XXX-XXX-</Mask>
         <UserHelpText>Your telephone number</UserHelpText>
-      </ClaimType>
-      <ClaimType Id="Verified.strongAuthenticationPhoneNumber">
+      </ClaimType> -->
+      <!-- <ClaimType Id="Verified.strongAuthenticationPhoneNumber">
         <DisplayName>Verified Phone Number</DisplayName>
         <DataType>string</DataType>
         <DefaultPartnerClaimTypes>
@@ -224,20 +224,21 @@
         </DefaultPartnerClaimTypes>
         <Mask Type="Simple">XXX-XXX-</Mask>
         <UserHelpText>Your office phone number that has been verified</UserHelpText>
-      </ClaimType>
-      <ClaimType Id="newPhoneNumberEntered">
+      </ClaimType> -->
+      <!-- <ClaimType Id="newPhoneNumberEntered">
         <DisplayName>New Phone Number Entered</DisplayName>
         <DataType>boolean</DataType>
       </ClaimType>
       <ClaimType Id="userIdForMFA">
         <DisplayName>UserId for MFA</DisplayName>
         <DataType>string</DataType>
-      </ClaimType>
+      </ClaimType> -->
       <ClaimType Id="email">
         <DisplayName>Email Address</DisplayName>
         <DataType>string</DataType>
         <DefaultPartnerClaimTypes>
           <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
+          <Protocol Name="OAuth2" PartnerClaimType="email" />
         </DefaultPartnerClaimTypes>
         <UserHelpText>Email address that can be used to contact you.</UserHelpText>
         <UserInputType>TextBox</UserInputType>
@@ -403,7 +404,7 @@
             TransformationClaimType="alternativeSecurityId" />
         </OutputClaims>
       </ClaimsTransformation>
-      <ClaimsTransformation Id="CreateUserIdForMFA" TransformationMethod="FormatStringClaim">
+      <!-- <ClaimsTransformation Id="CreateUserIdForMFA" TransformationMethod="FormatStringClaim">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="inputClaim" />
         </InputClaims>
@@ -413,7 +414,7 @@
         <OutputClaims>
           <OutputClaim ClaimTypeReferenceId="userIdForMFA" TransformationClaimType="outputClaim" />
         </OutputClaims>
-      </ClaimsTransformation>
+      </ClaimsTransformation> -->
       <ClaimsTransformation Id="CreateSubjectClaimFromAlternativeSecurityId"
         TransformationMethod="CreateStringClaim">
         <InputParameters>
@@ -491,14 +492,14 @@
           <Item Key="DisplayName">Signin and Signup</Item>
         </Metadata>
       </ContentDefinition>
-      <ContentDefinition Id="api.phonefactor">
+      <!-- <ContentDefinition Id="api.phonefactor">
         <LoadUri>~/tenant/templates/AzureBlue/multifactor-1.0.0.cshtml</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5</DataUri>
         <Metadata>
           <Item Key="DisplayName">Multi-factor authentication page</Item>
         </Metadata>
-      </ContentDefinition>
+      </ContentDefinition> -->
       <ContentDefinition Id="api.selfasserted">
         <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -649,7 +650,7 @@
       </TechnicalProfiles>
     </ClaimsProvider>
     <!-- PhoneFactor Claims-Provider -->
-    <ClaimsProvider>
+    <!-- <ClaimsProvider>
       <DisplayName>PhoneFactor</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="PhoneFactor-InputOrVerify">
@@ -679,7 +680,7 @@
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-MFA" />
         </TechnicalProfile>
       </TechnicalProfiles>
-    </ClaimsProvider>
+    </ClaimsProvider> -->
     <!-- Azure Active Directory Claims-Provider -->
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
@@ -746,7 +747,7 @@
           <OutputClaims>
             <!-- Required claims -->
             <OutputClaim ClaimTypeReferenceId="objectId" />
-            <OutputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" /> <!-- ? -->
+            <!-- <OutputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" /> ? -->
             <!-- Optional claims -->
             <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
             <OutputClaim ClaimTypeReferenceId="displayName" />
@@ -780,8 +781,8 @@
             <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
             <PersistedClaim ClaimTypeReferenceId="passwordPolicies"
               DefaultValue="DisablePasswordExpiration" />
-            <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber"
-              PartnerClaimType="strongAuthenticationPhoneNumber" />
+            <!-- <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber"
+              PartnerClaimType="strongAuthenticationPhoneNumber" /> -->
             <!-- Optional claims. -->
             <PersistedClaim ClaimTypeReferenceId="givenName" />
             <PersistedClaim ClaimTypeReferenceId="surname" />
@@ -813,7 +814,7 @@
             <OutputClaim ClaimTypeReferenceId="objectId" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource"
               DefaultValue="localAccountAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" /> <!-- ? -->
+            <!-- <OutputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" /> ? -->
             <!-- Optional claims -->
             <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
             <OutputClaim ClaimTypeReferenceId="displayName" />
@@ -840,8 +841,8 @@
             <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
             <!-- If the user stepped up during password reset, their phone number should be
             persisted for future authentication requests. -->
-            <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber"
-              PartnerClaimType="strongAuthenticationPhoneNumber" /> <!-- ? -->
+            <!-- <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber"
+              PartnerClaimType="strongAuthenticationPhoneNumber" /> -->
           </PersistedClaims>
           <IncludeTechnicalProfile ReferenceId="AAD-Common" />
         </TechnicalProfile>
@@ -861,8 +862,8 @@
             <PersistedClaim ClaimTypeReferenceId="objectId" />
             <!-- If the user stepped up during password reset, their phone number should be
             persisted for future authentication requests. -->
-            <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber"
-              PartnerClaimType="strongAuthenticationPhoneNumber" /> <!-- ? -->
+            <!-- <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber"
+              PartnerClaimType="strongAuthenticationPhoneNumber" />  -->
             <!-- Optional claims -->
             <PersistedClaim ClaimTypeReferenceId="givenName" />
             <PersistedClaim ClaimTypeReferenceId="surname" />
@@ -881,7 +882,7 @@
           </InputClaims>
           <OutputClaims>
             <!-- Required claims -->
-            <OutputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" />
+            <!-- <OutputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" /> -->
             <!-- Optional claims -->
             <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
             <OutputClaim ClaimTypeReferenceId="displayName" />
@@ -891,7 +892,7 @@
           </OutputClaims>
           <IncludeTechnicalProfile ReferenceId="AAD-Common" />
         </TechnicalProfile>
-        <TechnicalProfile Id="AAD-UserWritePhoneNumberUsingObjectId">
+        <!-- <TechnicalProfile Id="AAD-UserWritePhoneNumberUsingObjectId">
           <Metadata>
             <Item Key="Operation">Write</Item>
             <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">false</Item>
@@ -904,10 +905,10 @@
           <PersistedClaims>
             <PersistedClaim ClaimTypeReferenceId="objectId" />
             <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber"
-              PartnerClaimType="strongAuthenticationPhoneNumber" /> <!-- ? -->
+              PartnerClaimType="strongAuthenticationPhoneNumber" /> 
           </PersistedClaims>
           <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-        </TechnicalProfile>
+        </TechnicalProfile> -->
       </TechnicalProfiles>
     </ClaimsProvider>
     <!-- Self Asserted Claims-Provider -->
@@ -1082,7 +1083,7 @@
             <OutputClaim ClaimTypeReferenceId="objectId" />
             <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-            <OutputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" /> <!-- ? -->
+            <!-- <OutputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" /> ? -->
           </OutputClaims>
           <ValidationTechnicalProfiles>
             <ValidationTechnicalProfile ReferenceId="AAD-UserReadUsingEmailAddress" />
@@ -1100,7 +1101,7 @@
           </CryptographicKeys>
           <InputClaims>
             <InputClaim ClaimTypeReferenceId="objectId" />
-            <InputClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" /> <!-- ? -->
+            <!-- <InputClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" /> ? -->
           </InputClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
@@ -1152,7 +1153,7 @@
             <PersistedClaim ClaimTypeReferenceId="alternativeSecurityId" />
           </PersistedClaims>
         </TechnicalProfile>
-        <TechnicalProfile Id="SM-MFA">
+        <!-- <TechnicalProfile Id="SM-MFA">
           <DisplayName>Session Mananagement Provider</DisplayName>
           <Protocol Name="Proprietary"
             Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -1162,13 +1163,13 @@
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="isActiveMFASession" DefaultValue="true" />
           </OutputClaims>
-        </TechnicalProfile>
+        </TechnicalProfile> -->
         <!-- Session management technical profile for OIDC based tokens -->
-        <TechnicalProfile Id="SM-jwt-issuer">
+        <!-- <TechnicalProfile Id="SM-jwt-issuer">
           <DisplayName>Session Management Provider</DisplayName>
           <Protocol Name="Proprietary"
             Handler="Web.TPEngine.SSO.OAuthSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        </TechnicalProfile>
+        </TechnicalProfile> -->
       </TechnicalProfiles>
     </ClaimsProvider>
     <!-- Trustframework Policy Engine Claims-Provider -->
@@ -1190,7 +1191,8 @@
       <TechnicalProfiles>
         <TechnicalProfile Id="JwtIssuer">
           <DisplayName>JWT Issuer</DisplayName>
-          <Protocol Name="OpenIdConnect" />
+          <Protocol Name="None" />
+          <!-- <Protocol Name="OpenIdConnect" /> -->
           <OutputTokenFormat>JWT</OutputTokenFormat>
           <Metadata>
             <Item Key="client_id">{service:te}</Item>
@@ -1202,7 +1204,7 @@
             <Key Id="issuer_refresh_token_key" StorageReferenceId="B2C_1A_TokenEncryptionKeyContainer" />
             <!-- <Key Id="issuer_refresh_token_key" StorageReferenceId="B2C_1A_indiraKeyProd" /> -->
           </CryptographicKeys>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
+          <!-- <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" /> -->
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>

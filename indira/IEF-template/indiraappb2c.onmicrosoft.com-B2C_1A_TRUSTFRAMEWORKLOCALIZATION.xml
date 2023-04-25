@@ -78,51 +78,32 @@
       <!-- Sign-up or Sign-in page English -->
       <LocalizedResources Id="api.signuporsignin.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email
-            Address</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your
-            {0}</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">
-            Password</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter
-            your password</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter
-            your {0}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid
-            {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName"> Password</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with
-            {0} or {1}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with
-            {0}, {1}, or {2}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your
-            password?</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an
-            account?</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble
-            signing you in. Please try again later.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Your
-            password is incorrect.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your
-            password is incorrect.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your
-            password has expired.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage"
-            StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks
-            like you used an old password.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or
-            password.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your
-            account has been locked. Contact your support person to unlock it, then try again.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Your
-            account is temporarily locked to prevent unauthorized use. Try again later.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">There are too
-            many requests at this moment. Please wait for some time and try again.</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="Indigo">Microsoft Auth</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Your password is incorrect.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account has been locked. Contact your support person to unlock it, then try again.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Your account is temporarily locked to prevent unauthorized use. Try again later.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <!-- Local account sign-up page English-->
@@ -362,54 +343,33 @@
       <!-- Sign-up or Sign-in page Spanish -->
       <LocalizedResources Id="api.signuporsignin.es">
         <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Dirección
-            de correo electrónico</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="heading">Iniciar sesión</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Iniciar sesión con
-            su {0}</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">
-            Contraseña</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Introduzca su
-            contraseña</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Introduzca su
-            {0}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Introduzca un {0}
-            válido</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Regístrese ahora</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Regístrese con
-            {0} o {1}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Regístrese con
-            {0}, {1}, o {2}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">¿Olvidó su
-            contraseña?</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_signin">Iniciar sesión</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_intro">¿No tiene una
-            cuenta?</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="unknown_error">Tenemos problemas para
-            iniciar sesión. Inténtelo de nuevo más tarde.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Direccion de correo electronico</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="heading">Iniciar sesion</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Iniciar sesion con su {0}</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName"> Contraseña</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Introduzca su contraseña</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Introduzca su {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Introduzca un {0} valido</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Registrese ahora</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Registrese con {0} o {1}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Registrese con {0}, {1}, o {2}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">¿Olvido su contraseña?</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">Iniciar sesion</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_intro">¿No tiene una cuenta?</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="unknown_error">Tenemos problemas para iniciar sesion. Intentelo de nuevo mas tarde.</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="remember_me">Mantenerme conectado</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Su
-            contraseña es incorrecta.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Su
-            contraseña es incorrecta.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Su
-            contraseña ha expirado </LocalizedString>
-          <LocalizedString ElementType="ErrorMessage"
-            StringId="UserMessageIfClaimsPrincipalDoesNotExist">No podemos encontrar su cuenta.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Parece
-            que ha utilizado una contraseña antigua.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Nombre de usuario o
-            contraseña no válidos.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Su
-            cuenta ha sido bloqueada. Póngase en contacto con su persona de soporte para desbloquearla
-            y vuelva a intentarlo.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Su
-            cuenta está bloqueada temporalmente para evitar el uso no autorizado. Inténtelo de nuevo
-            más tarde.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">Hay demasiadas
-            solicitudes en este momento. Espere un tiempo y vuelva a intentarlo.</LocalizedString>
-        </LocalizedStrings> 
+          <LocalizedString ElementType="ClaimsProvider" StringId="Indigo">Microsoft Auth</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Su contraseña es incorrecta.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Su contraseña es incorrecta.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Su contraseña ha expirado </LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">No podemos encontrar su cuenta.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Parece que ha utilizado una contraseña antigua.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Nombre de usuario o contraseña no validos.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Su cuenta ha sido bloqueada. Pongase en contacto con su persona de soporte para desbloquearla y vuelva a intentarlo.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Su cuenta esta bloqueada temporalmente para evitar el uso no autorizado. Intentelo de nuevo mas tarde.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">Hay demasiadas solicitudes en este momento. Espere un tiempo y vuelva a intentarlo.</LocalizedString>
+        </LocalizedStrings>
       </LocalizedResources>
       <!-- Local account sign-up page Spanish -->
       <!-- TODO -->
