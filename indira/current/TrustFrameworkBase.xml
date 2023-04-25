@@ -479,7 +479,7 @@
 
       <ContentDefinition Id="api.signuporsignin">
         <!-- <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri> -->
-        <LoadUri>https://fx-indira-core.azurewebsites.net/Indigo/unified.html</LoadUri>
+        <LoadUri>https://fx-indira-core.azurewebsites.net/Indigo/unified.html</LoadUri>   <!-- ! replace with template -->
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
         <Metadata>

@@ -186,10 +186,63 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-st
 
 ##### Configurar los archivos base
 
-1. En todos los archivos del directorio SocialAndLocalAccounts o SocialAndLocalAccountsWithMFA, reemplace la cadena yourtenant por el nombre de su inquilino de Azure AD B2C.
-2. Abra el archivo TrustFrameworkExtensions.xml y busque el elemento _"<TechnicalProfile Id="login-NonInteractive">"_
-3. Reemplace ambas instancias de IdentityExperienceFrameworkAppId por el identificador de la aplicación IdentityExperienceFramework que creó antes.
-4. Reemplace ambas instancias de ProxyIdentityExperienceFrameworkAppId por el identificador de la aplicación ProxyIdentityExperienceFramework que creó antes.
+1. En todos los archivos del directorio SocialAndLocalAccounts o SocialAndLocalAccountsWithMFA, reemplace la cadena _yourtenant_ por el nombre de su inquilino de Azure AD B2C. el nombre de la politica si utiliza otro nombre, y el id del Tenant.
+
+<details open >
+  <summary> TrustFrameworkBase.xml </summary>
+
+  ``` XML
+  <TrustFrameworkPolicy
+    ...
+    TenantId="yourtenant.onmicrosoft.com"
+    PolicyId="B2C_1A_signup_signin"
+    PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin"
+    TenantObjectId="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ...
+    >
+
+    <BasePolicy>
+      <TenantId>yourtenant.onmicrosoft.com</TenantId>
+      ...
+    </BasePolicy>
+
+    ...
+  ```
+
+</details>
+
+2. Abra el archivo TrustFrameworkExtensions.xml y busque el elemento _"TechnicalProfile Id="login-NonInteractive"_
+3. Reemplace ambas instancias de _IdentityExperienceFrameworkAppId_ por el identificador de la aplicación _IdentityExperienceFramework_ que creó antes.
+4. Reemplace ambas instancias de _ProxyIdentityExperienceFrameworkAppId_ por el identificador de la aplicación _ProxyIdentityExperienceFramework_ que creó antes.
+
+<details open>
+
+  <summary> TrustFrameworkBase.xml </summary>
+
+``` XML
+...
+
+<ClaimsProvider>
+  <DisplayName>Local Account SignIn</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="login-NonInteractive">
+      <Metadata>
+        <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+        <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
+      </Metadata>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppId" />
+        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppId" />
+      </InputClaims>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+
+...
+```
+
+</details>
+
 5. Guarde el archivo.
 
 #### 5.3.1 Cargar las directivas en Azure
@@ -223,15 +276,6 @@ _"Nota: A medida que cargue los archivos, Azure agregará el prefijo B2C_1A_ a c
 ---
 
 ---
-
-### Step 3: Configure the sample to use your Azure Active Directory B2C tenant
-
-In the `TrustFrameworkExtensions.xml` file, replace the following with your tenant information:
-
-```xml
-<TenantName>your-tenant-name</TenantName>
-<TenantId>your-tenant-id</TenantId>
-```
 
 ## Contribute
 

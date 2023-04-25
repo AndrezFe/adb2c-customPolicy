@@ -9,6 +9,7 @@
   PublicPolicyUri="http://indiraappb2c.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions"
   TenantObjectId="ba9f0ee6-2983-4692-a166-3d3c836f33cc">
 
+  <!-- ! replace with your tenat-domain directory b2c -->
   <BasePolicy>
     <TenantId>indiraappb2c.onmicrosoft.com</TenantId>
     <PolicyId>B2C_1A_TrustFrameworkLocalization</PolicyId>
@@ -53,7 +54,7 @@
       <Domain>Indigo</Domain>
       <DisplayName>Login with your company</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="OIDC-Indigo">
+        <TechnicalProfile Id="OIDC-Indigo"> <!-- ! replace if you want other descriptive name to TechnicalProfile -->
           <DisplayName>Microsoft</DisplayName>
           <Description>Login with your company</Description>
           <Protocol Name="OpenIdConnect" />
@@ -61,7 +62,7 @@
             <Item Key="ProviderName">https://login.live.com</Item>
             <Item Key="METADATA">https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the Application ID -->
-            <Item Key="client_id">2570706f-c307-4a74-8dd9-9c84a01cfdbc</Item>
+            <Item Key="client_id">2570706f-c307-4a74-8dd9-9c84a01cfdbc</Item> <!-- ! replace with your Application ID -->
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="response_mode">form_post</Item>
@@ -78,7 +79,7 @@
             <!-- <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item> -->
           </Metadata>
           <CryptographicKeys>
-            <Key Id="client_secret" StorageReferenceId="B2C_1A_IndiraRisSecret" />
+            <Key Id="client_secret" StorageReferenceId="B2C_1A_IndiraRisSecret" /> <!-- ! replace with your PolicyKey - with Application secret -->
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
@@ -110,8 +111,8 @@
       <TechnicalProfiles>
         <TechnicalProfile Id="Facebook-OAUTH">
           <Metadata>
-            <Item Key="client_id">facebook_clientid</Item>
-            <Item Key="scope">email public_profile</Item>
+            <Item Key="client_id">facebook_clientid</Item> <!-- ! replace with your FB Application ID -->
+            <Item Key="scope">email public_profile</Item> 
             <Item Key="ClaimsEndpoint">https://graph.facebook.com/me?fields=id,first_name,last_name,name,email</Item>
           </Metadata>
         </TechnicalProfile>
@@ -123,12 +124,12 @@
       <TechnicalProfiles>
         <TechnicalProfile Id="login-NonInteractive">
           <Metadata>
-            <Item Key="client_id">c915a39e-ed83-4616-91a8-33ee261bcff3</Item>
-            <Item Key="IdTokenAudience">de16dcb0-5c9a-4bec-a3be-36fa3b43cff1</Item>
+            <Item Key="client_id">c915a39e-ed83-4616-91a8-33ee261bcff3</Item> <!-- ! replace with your ProxyIdentityExperienceFrameworkAppId -->
+            <Item Key="IdTokenAudience">de16dcb0-5c9a-4bec-a3be-36fa3b43cff1</Item> <!-- ! replace with your IdentityExperienceFrameworkAppId -->
           </Metadata>
           <InputClaims>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="c915a39e-ed83-4616-91a8-33ee261bcff3" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="de16dcb0-5c9a-4bec-a3be-36fa3b43cff1" />
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="c915a39e-ed83-4616-91a8-33ee261bcff3" /> <!-- ! replace with your ProxyIdentityExperienceFrameworkAppId -->
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="de16dcb0-5c9a-4bec-a3be-36fa3b43cff1" /> <!-- ! replace with your ProxyIdentityExperienceFrameworkAppId -->
           </InputClaims>
         </TechnicalProfile>
       </TechnicalProfiles>
@@ -140,8 +141,8 @@
         <TechnicalProfile Id="AAD-Common">
           <DisplayName>Azure Active Directory</DisplayName>
           <Metadata>
-            <Item Key="ApplicationObjectId">ac80e444-f4ce-40e1-a57d-ac79deb2a788</Item>
-            <Item Key="ClientId">1694a267-15c5-4de9-b14b-45c093603a10</Item>
+            <Item Key="ApplicationObjectId">ac80e444-f4ce-40e1-a57d-ac79deb2a788</Item> <!-- ! replace with your ... -->
+            <Item Key="ClientId">1694a267-15c5-4de9-b14b-45c093603a10</Item> <!-- ! replace with your ... -->
           </Metadata>
         </TechnicalProfile>
       </TechnicalProfiles>
@@ -150,7 +151,7 @@
   </ClaimsProviders>
 
   <UserJourneys>
-    <UserJourney Id="MainSignUpOrSignIn">
+    <UserJourney Id="MainSignUpOrSignIn"> <!-- ! replace with custom Journey -->
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
           <ClaimsProviderSelections>
@@ -170,7 +171,7 @@
             </Precondition>
           </Preconditions>
           <ClaimsExchanges>
-            <ClaimsExchange Id="IndigoExchange" TechnicalProfileReferenceId="OIDC-Indigo" />
+            <ClaimsExchange Id="IndigoExchange" TechnicalProfileReferenceId="OIDC-Indigo" /> <!-- ! replace name to TechnicalProfile -->
             <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
           </ClaimsExchanges>
         </OrchestrationStep>
