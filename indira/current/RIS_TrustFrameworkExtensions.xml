@@ -196,7 +196,7 @@
         <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
           <ClaimsProviderSelections>
             <ClaimsProviderSelection TargetClaimsExchangeId="IndigoExchange" />
-            <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
+            <!-- <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" /> -->
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
           </ClaimsProviderSelections>
           <ClaimsExchanges>
@@ -213,7 +213,7 @@
           </Preconditions>
           <ClaimsExchanges>
             <ClaimsExchange Id="IndigoExchange" TechnicalProfileReferenceId="OIDC-Indigo" /> <!-- ! replace name to TechnicalProfile -->
-            <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth2" />
+            <!-- <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth2" /> -->
             <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
           </ClaimsExchanges>
         </OrchestrationStep>
